@@ -95,10 +95,17 @@ jobs:
           echo "- Prompt: ${PICKED}" >> daily.md
           echo "" >> daily.md
 
-      - name: Commit & push
-        run: |
+            - name: Commit & push
+          run: |
           git config user.name "leviGatimu"
           git config user.email "getmorelev@gmail.com"
+
           git add daily.md
+
+          GIT_AUTHOR_NAME="leviGatimu" \
+          GIT_AUTHOR_EMAIL="getmorelev@gmail.com" \
+          GIT_COMMITTER_NAME="leviGatimu" \
+          GIT_COMMITTER_EMAIL="getmorelev@gmail.com" \
           git commit -m "Daily log update (auto)" || exit 0
+
           git push
