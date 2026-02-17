@@ -21,63 +21,15 @@ jobs:
 
           PROMPTS=(
             "Write 1 sentence about what you learned today."
-            "List 1 bug you fixed (even a tiny one)."
-            "Write 1 thing you found confusing, and why."
-            "Write 1 thing you now understand better."
-            "Write 1 small improvement you made to a project."
-            "Write 1 concept you revised (math/physics/coding)."
-            "Write 1 shortcut/command you used today."
-            "Write 1 mistake you made and what it taught you."
-            "Write 1 goal for the next 24 hours."
-            "Write 1 feature you want to build next."
-            "Write 1 thing you would teach someone else."
-            "Write 1 challenge you faced and how you handled it."
-            "Write 1 line describing your current project status."
-            "Write 1 thing you’re proud of today (small counts)."
-            "Write 1 improvement you can make tomorrow."
-            "Write 1 mini-plan for the next study session."
-            "Write 1 new term/definition you learned."
-            "Write 1 formula or rule you practiced."
-            "Write 1 code snippet idea (describe, don’t paste)."
-            "Write 1 test case you should add to your code."
-            "Write 1 UI/UX improvement idea for your website."
-            "Write 1 security thing to remember (validation, etc)."
-            "Write 1 performance improvement idea."
-            "Write 1 refactor you want to do."
-            "Write 1 thing you learned about Git/GitHub."
-            "Write 1 thing you learned about PHP."
-            "Write 1 thing you learned about JavaScript."
-            "Write 1 thing you learned about HTML/CSS."
-            "Write 1 thing you learned about databases."
-            "Write 1 robotics idea you thought of today."
-            "Write 1 sensor/component you worked with."
-            "Write 1 algorithm you reviewed (even basic)."
-            "Write 1 math topic you practiced."
-            "Write 1 physics concept you revised."
-            "Write 1 real-life application of something you studied."
-            "Write 1 resource you used (video/article) and what you got from it."
-            "Write 1 question you still have."
-            "Write 1 thing you’ll google later."
-            "Write 1 improvement to your study method."
-            "Write 1 thing that distracted you and how you’ll reduce it."
-            "Write 1 tiny task you can finish in 10 minutes."
-            "Write 1 commit message style you want to follow."
-            "Write 1 reason your project matters to people."
-            "Write 1 way to make your project more user-friendly."
-            "Write 1 way to make your project more reliable."
-            "Write 1 check you’ll add (edge cases)."
-            "Write 1 new feature you want: login, dashboard, etc."
-            "Write 1 detail you learned about APIs."
-            "Write 1 thing about REST you understand now."
-            "Write 1 thing about debugging you practiced."
-            "Write 1 command you ran and what it did."
-            "Write 1 thing you improved in your code readability."
-            "Write 1 thing you improved in your folder structure."
-            "Write 1 improvement to your README."
-            "Write 1 thing you’d change if starting again."
-            "Write 1 moment you felt stuck and how you got unstuck."
-            "Write 1 line: 'Today I moved forward by ____.'"
-            "Write 1 line: 'Tomorrow I will ____.'"
+            "List 1 bug you fixed."
+            "Write 1 thing you improved."
+            "Write 1 thing you revised."
+            "Write 1 coding concept you practiced."
+            "Write 1 mistake you corrected."
+            "Write 1 small feature idea."
+            "Write 1 improvement to your workflow."
+            "Write 1 debugging insight."
+            "Write 1 system design idea."
           )
 
           PICKED="$(printf "%s\n" "${PROMPTS[@]}" | shuf -n 1)"
@@ -92,14 +44,14 @@ jobs:
       - name: Commit & push
         run: |
           git config user.name "leviGatimu"
-          git config user.email "getmorelev@gmail.com"
+          git config user.email "YOUR_NOREPLY_EMAIL_HERE"
 
           git add daily.md
 
           GIT_AUTHOR_NAME="leviGatimu" \
-          GIT_AUTHOR_EMAIL="getmorelev@gmail.com" \
+          GIT_AUTHOR_EMAIL="237972100+leviGatimu@users.noreply.github.com" \
           GIT_COMMITTER_NAME="leviGatimu" \
-          GIT_COMMITTER_EMAIL="getmorelev@gmail.com" \
+          GIT_COMMITTER_EMAIL="237972100+leviGatimu@users.noreply.github.com" \
           git commit -m "Daily log update (auto)" || exit 0
 
           git push
