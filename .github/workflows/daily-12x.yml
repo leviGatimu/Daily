@@ -97,8 +97,8 @@ jobs:
 
       - name: Commit & push
         run: |
-          git config user.name "github-actions[bot]"
-          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git config user.name "leviGatimu"
+          git config user.email "getmorelev@gmail.com"
           git add daily.md
           git commit -m "Daily log update (auto)" || exit 0
           git push
