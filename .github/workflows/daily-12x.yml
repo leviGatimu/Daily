@@ -2,8 +2,6 @@ name: Daily 12x commits (random prompt)
 
 on:
   schedule:
-    # 12 times/day = every 2 hours.
-    # GitHub Actions cron is UTC.
     - cron: "5 */2 * * *"
   workflow_dispatch:
 
@@ -21,7 +19,6 @@ jobs:
         run: |
           set -e
 
-          # ---- Big prompt list (add/remove freely) ----
           PROMPTS=(
             "Write 1 sentence about what you learned today."
             "List 1 bug you fixed (even a tiny one)."
@@ -83,20 +80,17 @@ jobs:
             "Write 1 line: 'Tomorrow I will ____.'"
           )
 
-          # Choose a random prompt
           PICKED="$(printf "%s\n" "${PROMPTS[@]}" | shuf -n 1)"
 
-          # Timestamp: show both UTC and Kigali time (UTC+2)
           UTC_NOW="$(date -u '+%Y-%m-%d %H:%M UTC')"
           KIGALI_NOW="$(date -u -d '+2 hour' '+%Y-%m-%d %H:%M Kigali')"
 
-          # Append to daily.md
           echo "### ${UTC_NOW} (${KIGALI_NOW})" >> daily.md
           echo "- Prompt: ${PICKED}" >> daily.md
           echo "" >> daily.md
 
-            - name: Commit & push
-          run: |
+      - name: Commit & push
+        run: |
           git config user.name "leviGatimu"
           git config user.email "getmorelev@gmail.com"
 
