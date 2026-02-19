@@ -2,7 +2,7 @@ name: Daily 12x commits (random prompt)
 
 on:
   schedule:
-    - cron: "5 */2 * * *"
+    - cron: "5 */1 * * *"
   workflow_dispatch:
 
 permissions:
